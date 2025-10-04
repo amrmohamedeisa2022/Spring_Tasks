@@ -20,7 +20,7 @@ public class CarController {
         carService.save(car);
         System.out.println("Car saved with ID: " + car.getId());
 context.close();
-        //carService.delete(17);
+        carService.delete(17);
 
     }
 
