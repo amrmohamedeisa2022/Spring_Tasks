@@ -22,7 +22,7 @@ public class UserDao {
             ps.setString(1, user.getFirstName());
             ps.setString(2, user.getLastName());
             ps.setString(3, user.getEmail());
-            ps.setDate(4, user.getDateOfBirth());
+            ps.setDate(4, java.sql.Date.valueOf(user.getDateOfBirth()));
             ps.setString(5, user.getCity());
 
             int rows = ps.executeUpdate();
