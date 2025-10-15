@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
+import java.time.LocalDate;
 
 @Controller
 public class HomeController {
@@ -28,7 +29,7 @@ public class HomeController {
         user.setFirstName(request.getParameter("firstName"));
         user.setLastName(request.getParameter("lastName"));
         user.setEmail(request.getParameter("email"));
-        user.setDateOfBirth(Date.valueOf(request.getParameter("dateOfBirth")));
+        user.setDateOfBirth(LocalDate.parse(request.getParameter("dateOfBirth")));
         user.setCity(request.getParameter("city"));
 
     userService.saveUser(user);

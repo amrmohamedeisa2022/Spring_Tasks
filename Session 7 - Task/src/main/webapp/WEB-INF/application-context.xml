@@ -25,6 +25,6 @@
 
     <!-- Static resources (CSS, JS, images, etc.) -->
     <mvc:resources mapping="/resources/**" location="resources/"/>
-    <context:property-placeholder location="classpath:app.properties"/>
+    <context:property-placeholder location="classpath:main/webapp/resources/application.properties"/>
 
 </beans>
