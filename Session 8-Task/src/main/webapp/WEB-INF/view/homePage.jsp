@@ -8,11 +8,25 @@
 <body>
 <div class="form-container">
     <h1>User Form</h1>
-    <form:form action="processForm" modelAttribute="user">
-        <form:input type="text" placeholder="username" path="username" /><br><br>
-        <form:input type="password" placeholder="password" path="password" /><br><br>
 
-        <form:select path="country">
+    <form:form action="processForm" modelAttribute="user" method="post">
+    User Name  <form:input type="text" placeholder="username" path="username" />
+        <form:errors path="username" cssClass="error"/>   <br><br>
+     Password   <form:input type="password" placeholder="password" path="password" /><br><br>
+
+
+        age <form:input type="text" placeholder="age" path="age" />
+        <form:errors path="age" cssClass="error"/>   <br><br>
+
+
+        email <form:input type="text" placeholder="email" path="email" />
+        <form:errors path="email" cssClass="error"/>   <br><br>
+
+        phone <form:input type="text" placeholder="phone" path="phone" />
+        <form:errors path="phone" cssClass="error"/>   <br><br>
+
+
+     Country   <form:select path="country">
             <form:option value="us">US</form:option>
             <form:option value="australia">AUS</form:option>
             <form:option value="egypt">Egypt</form:option>
@@ -31,7 +45,7 @@
         Mac <form:checkbox path="operatingSystems" value="Mac"/>
         Linux <form:checkbox path="operatingSystems" value="Linux"/>
         <br>
-
+        <br>
         <input type="submit" value="Submit"/>
     </form:form>
 </div>
