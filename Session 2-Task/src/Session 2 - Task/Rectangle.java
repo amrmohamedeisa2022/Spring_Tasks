@@ -1,6 +1,6 @@
 package Session;
 
-public class Rectangle implements Shape {
+public class Rectangle implements Session.Shape {
 
     private DrawShape drawShape;
     private int height;
