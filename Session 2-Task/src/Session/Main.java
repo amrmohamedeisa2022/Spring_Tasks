@@ -7,7 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
     public static void main(String[] args) {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Session.ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         Circle circle = (Circle) context.getBean("circle");
 
