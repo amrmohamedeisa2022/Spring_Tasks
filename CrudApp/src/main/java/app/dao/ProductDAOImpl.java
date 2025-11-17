@@ -1,17 +1,14 @@
 package app.dao;
 
 import app.model.Product;
-import app.model.ProductDetails;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
-public class ProductDAO_impl implements ProductDAO {
+public class ProductDAOImpl implements ProductDAO {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -22,10 +19,9 @@ public class ProductDAO_impl implements ProductDAO {
 
     @Override
     public Product insert(Product product) {
-        getSession().save(product); // cascade هيحفظ الـ details تلقائي
+        getSession().save(product);
         return product;
     }
-
 
     @Override
     public Product findById(int id) {
@@ -53,4 +49,5 @@ public class ProductDAO_impl implements ProductDAO {
                 .createQuery("from Product", Product.class)
                 .getResultList();
     }
+
 }

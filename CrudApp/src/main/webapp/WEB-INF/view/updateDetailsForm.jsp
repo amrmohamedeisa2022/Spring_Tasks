@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1>Add new Product</h1>
-        <form:form action="processUpdateProductForm" modelAttribute="productModel" method="post">
+        <form:form action="processUpdateProductForm" modelAttribute="detailsModel" method="post">
             <div class="container mt-5">
                 <div class="row justify-content-center">
                     <div class="col-md-6">
