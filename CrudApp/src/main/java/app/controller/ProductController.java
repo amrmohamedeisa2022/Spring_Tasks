@@ -32,7 +32,7 @@ public class ProductController {
     @PostMapping("/processAddProduct")
     public String processAddProduct(@ModelAttribute("productModel") Product product) {
         service.insert(product);
-        return "redirect:/products/list";
+        return "redirect:/";
     }
 
 
@@ -49,7 +49,7 @@ public class ProductController {
     @PostMapping("/processUpdateProductForm")
     public String processUpdateProduct(@ModelAttribute("productModel") Product product) {
         service.insert(product);
-        return "redirect:/products/list";
+        return "redirect:/";
     }
 
 
@@ -64,6 +64,6 @@ public class ProductController {
     @GetMapping("/deleteProduct")
     public String deleteProduct(@RequestParam("id") int id) {
         service.deletebyId(id);
-        return "redirect:/products/list";
+        return "redirect:/";
     }
 }
