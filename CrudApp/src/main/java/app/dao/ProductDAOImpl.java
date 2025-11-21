@@ -3,6 +3,7 @@ package app.dao;
 import app.model.Product;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import java.util.List;
@@ -13,41 +14,36 @@ public class ProductDAOImpl implements ProductDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
-    private Session getSession() {
+    private Session getCurrentSession() {
         return sessionFactory.getCurrentSession();
     }
 
     @Override
-    public Product insert(Product product) {
-        getSession().save(product);
-        return product;
-    }
-
-    @Override
-    public Product findById(int id) {
-        return getSession().get(Product.class, id);
-    }
-
-    @Override
-    public Product deletebyId(int id) {
-        Product p = findById(id);
-        if (p != null) {
-            getSession().delete(p);
-        }
-        return p;
-    }
-
-    @Override
-    public Product update(Product product) {
-        getSession().update(product);
-        return product;
+    public void insert(Product product) {
+        getCurrentSession().saveOrUpdate(product);
     }
 
     @Override
     public List<Product> getAllProducts() {
-        return getSession()
-                .createQuery("from Product", Product.class)
-                .getResultList();
+        Query<Product> query = getCurrentSession().createQuery("from Product", Product.class);
+        return query.getResultList();
     }
 
+    @Override
+    public Product findById(int id) {
+        return getCurrentSession().get(Product.class, id);
+    }
+
+    @Override
+    public void update(Product product) {
+        getCurrentSession(). saveOrUpdate(product);
+    }
+
+    @Override
+    public void deleteById(int id) {
+        Product product = getCurrentSession().get(Product.class, id);
+        if (product != null) {
+            getCurrentSession().delete(product);
+        }
+    }
 }

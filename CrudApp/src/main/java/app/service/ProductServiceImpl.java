@@ -9,35 +9,38 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductDAO productDAO;
 
     @Override
-    public Product insert(Product p) {
-        return productDAO.insert(p);
+    @Transactional
+    public void addProduct(Product product) {
+        productDAO.insert(product);
     }
 
     @Override
-    public Product findById(int id) {
+    @Transactional(readOnly = true)
+    public Product getProductById(int id) {
         return productDAO.findById(id);
     }
 
     @Override
-    public Product update(Product p) {
-        return productDAO.update(p);
+    @Transactional
+    public void updateProduct(Product product) {
+        productDAO.update(product);
     }
 
     @Override
-    public Product deletebyId(int id) {
-        return productDAO.deletebyId(id);
+    @Transactional
+    public void deleteProduct(int id) {
+        productDAO.deleteById(id);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Product> getAllProducts() {
         return productDAO.getAllProducts();
     }
-
 }

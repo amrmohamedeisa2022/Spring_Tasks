@@ -7,25 +7,21 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Data
 @Table(name = "product")
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
+
 public class Product {
 
+
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name")
+    @Column( name="name",nullable = false)
     private String name;
 
-    @OneToOne(mappedBy = "product",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private ProductDetails details;
-
-    public Product(ProductDetails details, String name) {
-        this.details = details;
-        this.name = name;
-    }
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
+    private ProductDetails productDetails;
 }
