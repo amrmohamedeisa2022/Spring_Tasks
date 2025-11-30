@@ -8,13 +8,9 @@ import java.util.List;
 
 public interface ProductDAO {
 
-    void insert(Product product);
-
-    Product findById(int id);
-
-    void deleteById(int id);
-
-    void update(Product product);
-
+    Product insert(Product product);
+    Product delete(int id);
     List<Product> getAllProducts();
+    Product getProductById(int id);
+    Product updateProduct(Product product);
 }

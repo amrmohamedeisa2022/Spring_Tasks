@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <title>Product Details</title>
@@ -9,7 +10,9 @@
     <h2>Product Details</h2>
     <div class="card p-3 mt-3">
         <p><strong>Name:</strong> ${product.name}</p>
-        <p><strong>Expiration:</strong> ${product.productDetails.expirationDate}</p>
+        <p><strong>Expiration:</strong>
+            <fmt:formatDate value="${product.productDetails.expirationDate}" pattern="yyyy-MM-dd"/>
+        </p>
         <p><strong>Manufacturer:</strong> ${product.productDetails.manufacturer}</p>
         <p><strong>Price:</strong> ${product.productDetails.price}</p>
         <p><strong>Availability:</strong>
@@ -18,7 +21,6 @@
                 <c:otherwise>Not Available</c:otherwise>
             </c:choose>
         </p>
-
     </div>
     <a href="<c:url value='/addProductForm'/>" class="btn btn-primary mt-3">Add Another Product</a>
 </div>

@@ -9,13 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductDAO productDAO;
 
     @Override
-    @Transactional
     public void addProduct(Product product) {
         productDAO.insert(product);
     }
@@ -23,19 +23,17 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @Transactional(readOnly = true)
     public Product getProductById(int id) {
-        return productDAO.findById(id);
+        return productDAO.getProductById(id);
     }
 
     @Override
-    @Transactional
     public void updateProduct(Product product) {
-        productDAO.update(product);
+        productDAO.updateProduct(product);
     }
 
     @Override
-    @Transactional
     public void deleteProduct(int id) {
-        productDAO.deleteById(id);
+        productDAO.delete(id);
     }
 
     @Override
