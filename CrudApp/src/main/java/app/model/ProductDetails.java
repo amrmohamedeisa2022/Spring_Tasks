@@ -4,18 +4,14 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
+import javax.validation.constraints.*;
 import java.util.Date;
-
 
 @Entity
 @Table(name = "product_details")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class ProductDetails {
 
     @Id
@@ -27,25 +23,25 @@ public class ProductDetails {
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
-    @NotBlank(message = "Product name is required")
-    @Column(name = "name", nullable = false)
-    private String name;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "Expiration date is required")
+    @Future(message = "Expiration date must be in the future")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "expiration_date", nullable = false)
     private Date expirationDate;
 
+
     @NotBlank(message = "Manufacturer name is required")
+    @Size(min = 2, message = "Manufacturer name must be at least 2 characters")
     @Column(name = "manufacturer", nullable = false)
     private String manufacturer;
 
+
+    @NotNull(message = "Price is required")
     @Positive(message = "Price must be greater than 0")
     @Column(name = "price", nullable = false)
     private Double price;
 
+
     @Column(name = "available", nullable = false)
     private boolean available;
-
-
 }

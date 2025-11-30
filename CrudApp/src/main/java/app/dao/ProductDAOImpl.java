@@ -14,36 +14,43 @@ public class ProductDAOImpl implements ProductDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
-    private Session getCurrentSession() {
-        return sessionFactory.getCurrentSession();
+    @Override
+    public Product insert(Product product) {
+       Session session = sessionFactory.getCurrentSession();
+       session.save(product);
+       return product;
     }
 
-    @Override
-    public void insert(Product product) {
-        getCurrentSession().saveOrUpdate(product);
-    }
+
+
 
     @Override
     public List<Product> getAllProducts() {
-        Query<Product> query = getCurrentSession().createQuery("from Product", Product.class);
+        Session session = sessionFactory.getCurrentSession();
+        Query<Product> query = session.createQuery("from Product", Product.class);
         return query.getResultList();
     }
 
     @Override
-    public Product findById(int id) {
-        return getCurrentSession().get(Product.class, id);
+    public Product getProductById(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Product.class, id);
     }
 
     @Override
-    public void update(Product product) {
-        getCurrentSession(). saveOrUpdate(product);
-    }
-
-    @Override
-    public void deleteById(int id) {
-        Product product = getCurrentSession().get(Product.class, id);
+    public Product delete(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Product product = session.get(Product.class, id);
         if (product != null) {
-            getCurrentSession().delete(product);
+            session.delete(product);
         }
+        return product;
+    }
+
+    @Override
+    public Product updateProduct(Product product) {
+        Session session = sessionFactory.getCurrentSession();
+        session.update(product);
+        return product;
     }
 }
