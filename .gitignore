@@ -37,3 +37,5 @@ Thumbs.db
 *.bak
 *.swp
 *~
+config.bat
+node_modules

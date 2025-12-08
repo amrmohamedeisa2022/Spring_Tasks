@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "98b587fa-2e41-40d7-a1b7-b7ca2dbcdc11",
+		"name": "ProductApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50213869",
+		"_collection_link": "https://amrmohamedeisa13-4365038.postman.co/workspace/Amr-Mohamed-Eisa's-Workspace~9b0be191-6157-4ebf-883b-2af5990e7c05/collection/50213869-98b587fa-2e41-40d7-a1b7-b7ca2dbcdc11?action=share&source=collection_link&creator=50213869"
+	},
+	"item": [
+		{
+			"name": "get all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/AmazonApp/products/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"AmazonApp",
+						"products",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/AmazonApp/products/product/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"AmazonApp",
+						"products",
+						"product",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProduct",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":16,\r\n  \"name\": \"pen\",\r\n  \"productDetails\": {\r\n    \"expirationDate\": \"2026-01-01\",\r\n    \"manufacturer\": \"Dell\",\r\n    \"price\": 1500,\r\n    \"available\": true\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/AmazonApp/products/product/16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"AmazonApp",
+						"products",
+						"product",
+						"16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"cub\",\r\n  \"productDetails\": {\r\n    \"expirationDate\": \"2026-01-01\",\r\n    \"manufacturer\": \"Dell\",\r\n    \"price\": 1500,\r\n    \"available\": true\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/AmazonApp/products/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"AmazonApp",
+						"products",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProduct",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/AmazonApp/products/product/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"AmazonApp",
+						"products",
+						"product",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProductByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/AmazonApp/products/products?name=phone",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"AmazonApp",
+						"products",
+						"products"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "phone"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
