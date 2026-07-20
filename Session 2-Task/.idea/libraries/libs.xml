@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="file://D:/Java Backend/2.Spring Core(IOC)/libs-20250911T192457Z-1-001/libs" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://D:/Java Backend/2.Spring Core(IOC)/libs-20250911T192457Z-1-001/libs" />
+    </SOURCES>
+    <jarDirectory url="file://D:/Java Backend/2.Spring Core(IOC)/libs-20250911T192457Z-1-001/libs" recursive="false" />
+    <jarDirectory url="file://D:/Java Backend/2.Spring Core(IOC)/libs-20250911T192457Z-1-001/libs" recursive="false" type="SOURCES" />
+  </library>
+</component>
